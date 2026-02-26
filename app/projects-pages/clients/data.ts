@@ -1,0 +1,161 @@
+export type Client = {
+  id: number;
+  name: string;
+  email: string;
+  phone: string;
+  country: string;
+  address: string;
+  currency: string;
+  invoices: number;
+  due: number;
+  stats: {
+    total: number;
+    paid: number;
+    discount: number;
+    due: number;
+  };
+  recentInvoices: Array<{
+    id: number;
+    products: number;
+    total: number;
+    paid: number;
+    discount: number;
+    due: number;
+    currency: string;
+    status: string;
+    date: string;
+    dueDate: string;
+  }>;
+};
+
+export const clients: Client[] = [
+  {
+    id: 1,
+    name: "احمد سعيد",
+    email: "testemail@example.com",
+    phone: "123456789",
+    country: "Qatar",
+    address: "Doha, Qatar",
+    currency: "USD",
+    invoices: 9,
+    due: 15,
+    stats: {
+      total: 130,
+      paid: 135,
+      discount: 0,
+      due: 15,
+    },
+    recentInvoices: [
+      {
+        id: 1,
+        products: 2,
+        total: 50,
+        paid: 70,
+        discount: 0,
+        due: 0,
+        currency: "USD",
+        status: "المدفوع",
+        date: "20-09-2024",
+        dueDate: "لا يوجد",
+      },
+      {
+        id: 2,
+        products: 2,
+        total: 70,
+        paid: 0,
+        discount: 0,
+        due: 70,
+        currency: "OMR",
+        status: "لم يتم الدفع",
+        date: "22-09-2024",
+        dueDate: "27-08-2024",
+      },
+      {
+        id: 3,
+        products: 1,
+        total: 175,
+        paid: 0,
+        discount: 5,
+        due: 170,
+        currency: "OMR",
+        status: "لم يتم الدفع",
+        date: "23-09-2024",
+        dueDate: "لا يوجد",
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: "سامي ابو انس",
+    email: "testemail3@example.com",
+    phone: "987654321",
+    country: "Tunisia",
+    address: "Tunis, Tunisia",
+    currency: "QAR",
+    invoices: 2,
+    due: 95,
+    stats: {
+      total: 240,
+      paid: 145,
+      discount: 0,
+      due: 95,
+    },
+    recentInvoices: [
+      {
+        id: 1,
+        products: 1,
+        total: 140,
+        paid: 140,
+        discount: 0,
+        due: 0,
+        currency: "USD",
+        status: "المدفوع",
+        date: "18-09-2024",
+        dueDate: "لا يوجد",
+      },
+      {
+        id: 2,
+        products: 2,
+        total: 95,
+        paid: 0,
+        discount: 0,
+        due: 95,
+        currency: "QAR",
+        status: "لم يتم الدفع",
+        date: "25-09-2024",
+        dueDate: "30-09-2024",
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: "علي هاني",
+    email: "testemail2@example.com",
+    phone: "123456789",
+    country: "Algeria",
+    address: "Algiers, Algeria",
+    currency: "USD",
+    invoices: 1,
+    due: 50,
+    stats: {
+      total: 50,
+      paid: 0,
+      discount: 0,
+      due: 50,
+    },
+    recentInvoices: [
+      {
+        id: 1,
+        products: 1,
+        total: 50,
+        paid: 0,
+        discount: 0,
+        due: 50,
+        currency: "USD",
+        status: "لم يتم الدفع",
+        date: "29-09-2024",
+        dueDate: "لا يوجد",
+      },
+    ],
+  },
+];
