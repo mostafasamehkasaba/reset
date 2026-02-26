@@ -20,7 +20,7 @@ export default function SettingsPage() {
 
   return (
     <div className="min-h-screen w-full bg-slate-100 text-slate-800">
-      <header className="bg-[#071a2c] text-white shadow-sm" dir="ltr">
+      <header className="bg-brand-900 text-white shadow-sm" dir="ltr">
         <div className="flex h-14 w-full items-center justify-between px-6">
           <div className="flex items-center gap-3 text-slate-200">
             <button
@@ -121,7 +121,7 @@ export default function SettingsPage() {
               <button className="rounded-full border border-slate-200 px-4 py-2 text-sm text-slate-600">
                 إلغاء
               </button>
-              <button className="rounded-full bg-[#071a2c] px-4 py-2 text-sm text-white">
+              <button className="rounded-full bg-brand-900 px-4 py-2 text-sm text-white">
                 حفظ
               </button>
             </div>

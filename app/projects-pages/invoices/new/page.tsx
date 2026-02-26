@@ -1,21 +1,21 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import Sidebar from "../../../components/Sidebar";
 
 const items = [
-  { name: "قالب ووردبريس", price: 20, qty: 1, total: 20 },
-  { name: "تصميم موقع", price: 30, qty: 1, total: 30 },
-  { name: "اعداد سيرفر", price: 50, qty: 1, total: 50 },
+  { name: "ظ‚ط§ظ„ط¨ ظˆظˆط±ط¯ط¨ط±ظٹط³", price: 20, qty: 1, total: 20 },
+  { name: "طھطµظ…ظٹظ… ظ…ظˆظ‚ط¹", price: 30, qty: 1, total: 30 },
+  { name: "ط§ط¹ط¯ط§ط¯ ط³ظٹط±ظپط±", price: 50, qty: 1, total: 50 },
 ];
 
 export default function NewInvoicePage() {
   return (
     <div className="min-h-screen w-full bg-slate-100 text-slate-800">
-      <header className="bg-[#071a2c] text-white shadow-sm" dir="ltr">
+      <header className="bg-brand-900 text-white shadow-sm" dir="ltr">
         <div className="flex h-14 w-full items-center justify-between px-6">
           <div className="flex items-center gap-3 text-slate-200">
             <button
               className="rounded-md p-1 transition hover:bg-white/10"
-              aria-label="الصفحة الرئيسية"
+              aria-label="ط§ظ„طµظپط­ط© ط§ظ„ط±ط¦ظٹط³ظٹط©"
             >
               <svg
                 aria-hidden="true"
@@ -31,7 +31,7 @@ export default function NewInvoicePage() {
             </button>
             <button
               className="rounded-md p-1 transition hover:bg-white/10"
-              aria-label="المستخدم"
+              aria-label="ط§ظ„ظ…ط³طھط®ط¯ظ…"
             >
               <svg
                 aria-hidden="true"
@@ -47,7 +47,7 @@ export default function NewInvoicePage() {
             </button>
             <button
               className="rounded-md p-1 transition hover:bg-white/10"
-              aria-label="القائمة الرئيسية"
+              aria-label="ط§ظ„ظ‚ط§ط¦ظ…ط© ط§ظ„ط±ط¦ظٹط³ظٹط©"
             >
               <svg
                 aria-hidden="true"
@@ -61,7 +61,7 @@ export default function NewInvoicePage() {
               </svg>
             </button>
           </div>
-          <div className="text-right text-base font-semibold">فاتورة+</div>
+          <div className="text-right text-base font-semibold">ظپط§طھظˆط±ط©+</div>
         </div>
       </header>
 
@@ -69,13 +69,13 @@ export default function NewInvoicePage() {
         <main className="flex-1 space-y-4" dir="rtl">
           <div className="flex items-center justify-between rounded-lg border border-slate-200 bg-white px-4 py-3 shadow-sm">
             <div className="text-right text-lg font-semibold text-slate-700">
-              الفواتير
+              ط§ظ„ظپظˆط§طھظٹط±
             </div>
             <Link
               href="/projects-pages/invoices"
               className="rounded-md bg-slate-100 px-3 py-1 text-sm text-slate-600"
             >
-              جديد
+              ط¬ط¯ظٹط¯
             </Link>
           </div>
 
@@ -83,18 +83,18 @@ export default function NewInvoicePage() {
             <aside className="space-y-3 rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-slate-700">
-                  العملة
+                  ط§ظ„ط¹ظ…ظ„ط©
                 </label>
                 <select className="w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm">
-                  <option>ريال السعودي</option>
-                  <option>ريال عماني</option>
-                  <option>دولار</option>
+                  <option>ط±ظٹط§ظ„ ط§ظ„ط³ط¹ظˆط¯ظٹ</option>
+                  <option>ط±ظٹط§ظ„ ط¹ظ…ط§ظ†ظٹ</option>
+                  <option>ط¯ظˆظ„ط§ط±</option>
                 </select>
               </div>
 
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-slate-700">
-                  تاريخ الكتابة
+                  طھط§ط±ظٹط® ط§ظ„ظƒطھط§ط¨ط©
                 </label>
                 <div className="relative">
                   <input
@@ -103,14 +103,14 @@ export default function NewInvoicePage() {
                     className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm"
                   />
                   <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
-                    📅
+                    ًں“…
                   </span>
                 </div>
               </div>
 
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-slate-700">
-                  تاريخ الاستحقاق
+                  طھط§ط±ظٹط® ط§ظ„ط§ط³طھط­ظ‚ط§ظ‚
                 </label>
                 <div className="relative">
                   <input
@@ -119,25 +119,25 @@ export default function NewInvoicePage() {
                     className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm"
                   />
                   <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
-                    📅
+                    ًں“…
                   </span>
                 </div>
               </div>
 
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-slate-700">
-                  العميل
+                  ط§ظ„ط¹ظ…ظٹظ„
                 </label>
                 <select className="w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm">
-                  <option>سامي ابو انس</option>
-                  <option>احمد سعيد</option>
-                  <option>علي هاني</option>
+                  <option>ط³ط§ظ…ظٹ ط§ط¨ظˆ ط§ظ†ط³</option>
+                  <option>ط§ط­ظ…ط¯ ط³ط¹ظٹط¯</option>
+                  <option>ط¹ظ„ظٹ ظ‡ط§ظ†ظٹ</option>
                 </select>
               </div>
 
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-slate-700">
-                  ملاحظات
+                  ظ…ظ„ط§ط­ط¸ط§طھ
                 </label>
                 <textarea
                   rows={6}
@@ -149,11 +149,11 @@ export default function NewInvoicePage() {
             <section className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
               <div className="grid grid-cols-[40px_1fr_120px_120px_120px_120px] gap-2 text-right text-sm font-semibold text-slate-600">
                 <span>#</span>
-                <span>الاسم</span>
-                <span>السعر</span>
-                <span>الكمية</span>
-                <span>المجموع</span>
-                <span className="text-center">حذف</span>
+                <span>ط§ظ„ط§ط³ظ…</span>
+                <span>ط§ظ„ط³ط¹ط±</span>
+                <span>ط§ظ„ظƒظ…ظٹط©</span>
+                <span>ط§ظ„ظ…ط¬ظ…ظˆط¹</span>
+                <span className="text-center">ط­ط°ظپ</span>
               </div>
 
               <div className="mt-3 space-y-2">
@@ -180,7 +180,7 @@ export default function NewInvoicePage() {
                       defaultValue={item.total}
                     />
                     <button className="mx-auto flex h-8 w-8 items-center justify-center rounded-md border border-slate-200 text-slate-500 hover:bg-slate-50">
-                      🗑
+                      ًں—‘
                     </button>
                   </div>
                 ))}
@@ -189,7 +189,7 @@ export default function NewInvoicePage() {
               <div className="mt-4 grid gap-3">
                 <div className="grid grid-cols-[1fr_140px] items-center gap-2 text-sm">
                   <div className="text-right font-semibold text-slate-700">
-                    المجموع
+                    ط§ظ„ظ…ط¬ظ…ظˆط¹
                   </div>
                   <input
                     className="rounded-md border border-slate-200 px-2 py-1 text-center"
@@ -198,7 +198,7 @@ export default function NewInvoicePage() {
                 </div>
                 <div className="grid grid-cols-[1fr_140px] items-center gap-2 text-sm">
                   <div className="text-right font-semibold text-slate-700">
-                    التخفيض
+                    ط§ظ„طھط®ظپظٹط¶
                   </div>
                   <input
                     className="rounded-md border border-slate-200 px-2 py-1 text-center"
@@ -208,25 +208,25 @@ export default function NewInvoicePage() {
               </div>
 
               <div className="mt-4 rounded-md border border-rose-200 bg-rose-100 px-4 py-3 text-right text-lg font-semibold text-rose-700">
-                المستحق <span className="float-left">100</span>
+                ط§ظ„ظ…ط³طھط­ظ‚ <span className="float-left">100</span>
               </div>
 
               <div className="mt-4 flex items-center justify-between">
                 <Link
                   href="/projects-pages/invoices/view"
-                  className="rounded-full bg-[#071a2c] px-8 py-2 text-sm text-white"
+                  className="rounded-full bg-brand-900 px-8 py-2 text-sm text-white"
                 >
-                  حفظ
+                  ط­ظپط¸
                 </Link>
                 <button className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600">
-                  منتج +
+                  ظ…ظ†طھط¬ +
                 </button>
               </div>
             </section>
           </div>
         </main>
 
-        <Sidebar activeLabel="الفواتير" />
+        <Sidebar activeLabel="ط§ظ„ظپظˆط§طھظٹط±" />
       </div>
     </div>
   );

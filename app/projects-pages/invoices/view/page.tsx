@@ -1,12 +1,12 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import Sidebar from "../../../components/Sidebar";
 
 const items = [
-  { id: 1, name: "اعداد ووردبريس", price: 20, qty: 1, total: "USD 20" },
-  { id: 2, name: "تصميم موقع", price: 30, qty: 1, total: "USD 30" },
-  { id: 3, name: "اعداد سيرفر", price: 20, qty: 1, total: "USD 20" },
+  { id: 1, name: "ط§ط¹ط¯ط§ط¯ ظˆظˆط±ط¯ط¨ط±ظٹط³", price: 20, qty: 1, total: "USD 20" },
+  { id: 2, name: "طھطµظ…ظٹظ… ظ…ظˆظ‚ط¹", price: 30, qty: 1, total: "USD 30" },
+  { id: 3, name: "ط§ط¹ط¯ط§ط¯ ط³ظٹط±ظپط±", price: 20, qty: 1, total: "USD 20" },
 ];
 
 export default function InvoiceViewPage() {
@@ -15,28 +15,28 @@ export default function InvoiceViewPage() {
 
   return (
     <div className="min-h-screen w-full bg-slate-100 text-slate-800">
-      <header className="bg-[#071a2c] text-white shadow-sm" dir="ltr">
+      <header className="bg-brand-900 text-white shadow-sm" dir="ltr">
         <div className="flex h-14 w-full items-center justify-between px-6">
           <div className="flex items-center gap-3 text-slate-200">
-            <button className="rounded-md p-1 transition hover:bg-white/10" aria-label="الصفحة الرئيسية">
+            <button className="rounded-md p-1 transition hover:bg-white/10" aria-label="ط§ظ„طµظپط­ط© ط§ظ„ط±ط¦ظٹط³ظٹط©">
               <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="M3 11.5L12 4l9 7.5" />
                 <path d="M6 10v10h12V10" />
               </svg>
             </button>
-            <button className="rounded-md p-1 transition hover:bg-white/10" aria-label="المستخدم">
+            <button className="rounded-md p-1 transition hover:bg-white/10" aria-label="ط§ظ„ظ…ط³طھط®ط¯ظ…">
               <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <circle cx="12" cy="8" r="3.5" />
                 <path d="M4.5 20c1.8-3 5-4.5 7.5-4.5s5.7 1.5 7.5 4.5" />
               </svg>
             </button>
-            <button className="rounded-md p-1 transition hover:bg-white/10" aria-label="القائمة الرئيسية">
+            <button className="rounded-md p-1 transition hover:bg-white/10" aria-label="ط§ظ„ظ‚ط§ط¦ظ…ط© ط§ظ„ط±ط¦ظٹط³ظٹط©">
               <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
           </div>
-          <div className="text-right text-base font-semibold">فاتورة+</div>
+          <div className="text-right text-base font-semibold">ظپط§طھظˆط±ط©+</div>
         </div>
       </header>
 
@@ -44,64 +44,64 @@ export default function InvoiceViewPage() {
         <main className="flex-1 space-y-4" dir="rtl">
           <div className="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-slate-200 bg-white px-4 py-3 shadow-sm">
             <div className="text-right text-lg font-semibold text-slate-700">
-              رقم الفاتورة: 24090600033
+              ط±ظ‚ظ… ط§ظ„ظپط§طھظˆط±ط©: 24090600033
             </div>
             <div className="flex flex-wrap items-center gap-2">
               <button
                 type="button"
                 className="rounded-full bg-emerald-500 px-4 py-2 text-sm text-white"
               >
-                تنزيل ملف PDF
+                طھظ†ط²ظٹظ„ ظ…ظ„ظپ PDF
               </button>
               <button
                 type="button"
                 onClick={() => window.print()}
-                className="rounded-full bg-[#071a2c] px-4 py-2 text-sm text-white"
+                className="rounded-full bg-brand-900 px-4 py-2 text-sm text-white"
               >
-                طباعة
+                ط·ط¨ط§ط¹ط©
               </button>
               <button
                 type="button"
                 onClick={() => setModal("email")}
                 className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600"
               >
-                إرسال بالبريد
+                ط¥ط±ط³ط§ظ„ ط¨ط§ظ„ط¨ط±ظٹط¯
               </button>
               <a
                 className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600"
                 href="/projects-pages/payment-methods"
               >
-                صفحة الدفع
+                طµظپط­ط© ط§ظ„ط¯ظپط¹
               </a>
             </div>
           </div>
 
           <div className="relative rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
             <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[-15deg] rounded-md border-2 border-sky-400/80 px-6 py-3 text-lg font-semibold text-sky-500/80">
-              تم الدفع جزئيا
+              طھظ… ط§ظ„ط¯ظپط¹ ط¬ط²ط¦ظٹط§
             </div>
             <div className="flex flex-wrap items-start justify-between gap-6 border-b border-slate-200 pb-4">
               <div className="order-1 text-right text-sm">
                 <div className="mx-auto mb-3 h-11 w-11 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500" />
-                <p className="font-semibold text-slate-700">شركة البرمجيات</p>
-                <p className="text-xs text-slate-500">برمجة وتطوير</p>
+                <p className="font-semibold text-slate-700">ط´ط±ظƒط© ط§ظ„ط¨ط±ظ…ط¬ظٹط§طھ</p>
+                <p className="text-xs text-slate-500">ط¨ط±ظ…ط¬ط© ظˆطھط·ظˆظٹط±</p>
               </div>
 
               <div className="order-2 flex min-w-[220px] flex-1 flex-col gap-2 text-sm text-slate-700">
                 <div className="grid grid-cols-[120px_1fr] items-center">
-                  <span className="font-semibold">العميل:</span>
-                  <span>احمد سعيد</span>
+                  <span className="font-semibold">ط§ظ„ط¹ظ…ظٹظ„:</span>
+                  <span>ط§ط­ظ…ط¯ ط³ط¹ظٹط¯</span>
                 </div>
                 <div className="grid grid-cols-[120px_1fr] items-center">
-                  <span className="font-semibold">الهاتف:</span>
+                  <span className="font-semibold">ط§ظ„ظ‡ط§طھظپ:</span>
                   <span>123456789</span>
                 </div>
                 <div className="grid grid-cols-[120px_1fr] items-center">
-                  <span className="font-semibold">الدولة:</span>
+                  <span className="font-semibold">ط§ظ„ط¯ظˆظ„ط©:</span>
                   <span>Qatar</span>
                 </div>
                 <div className="grid grid-cols-[120px_1fr] items-center">
-                  <span className="font-semibold">العنوان:</span>
+                  <span className="font-semibold">ط§ظ„ط¹ظ†ظˆط§ظ†:</span>
                   <span>Doha, Qatar</span>
                 </div>
               </div>
@@ -119,10 +119,10 @@ export default function InvoiceViewPage() {
                 <thead className="bg-slate-50 text-slate-600">
                   <tr>
                     <th className="px-3 py-3 text-center">#</th>
-                    <th className="px-3 py-3 text-right">منتج</th>
-                    <th className="px-3 py-3 text-center">السعر</th>
-                    <th className="px-3 py-3 text-center">الكمية</th>
-                    <th className="px-3 py-3 text-center">المجموع</th>
+                    <th className="px-3 py-3 text-right">ظ…ظ†طھط¬</th>
+                    <th className="px-3 py-3 text-center">ط§ظ„ط³ط¹ط±</th>
+                    <th className="px-3 py-3 text-center">ط§ظ„ظƒظ…ظٹط©</th>
+                    <th className="px-3 py-3 text-center">ط§ظ„ظ…ط¬ظ…ظˆط¹</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -137,28 +137,28 @@ export default function InvoiceViewPage() {
                   ))}
                   <tr>
                     <td className="px-3 py-3 text-center text-slate-500"> </td>
-                    <td className="px-3 py-3 text-right text-slate-500">المجموع</td>
+                    <td className="px-3 py-3 text-right text-slate-500">ط§ظ„ظ…ط¬ظ…ظˆط¹</td>
                     <td className="px-3 py-3 text-center text-slate-600"> </td>
                     <td className="px-3 py-3 text-center text-slate-600"> </td>
                     <td className="px-3 py-3 text-center text-slate-700">USD 70</td>
                   </tr>
                   <tr>
                     <td className="px-3 py-3 text-center text-slate-500"> </td>
-                    <td className="px-3 py-3 text-right text-slate-500">التخفيض</td>
+                    <td className="px-3 py-3 text-right text-slate-500">ط§ظ„طھط®ظپظٹط¶</td>
                     <td className="px-3 py-3 text-center text-slate-600"> </td>
                     <td className="px-3 py-3 text-center text-slate-600"> </td>
                     <td className="px-3 py-3 text-center text-slate-700">USD 0</td>
                   </tr>
                   <tr>
                     <td className="px-3 py-3 text-center text-slate-500"> </td>
-                    <td className="px-3 py-3 text-right text-slate-500">المدفوع</td>
+                    <td className="px-3 py-3 text-right text-slate-500">ط§ظ„ظ…ط¯ظپظˆط¹</td>
                     <td className="px-3 py-3 text-center text-slate-600"> </td>
                     <td className="px-3 py-3 text-center text-slate-600"> </td>
                     <td className="px-3 py-3 text-center text-slate-700">USD 55</td>
                   </tr>
                   <tr>
                     <td className="px-3 py-3 text-center text-slate-500"> </td>
-                    <td className="px-3 py-3 text-right text-rose-600">المستحق</td>
+                    <td className="px-3 py-3 text-right text-rose-600">ط§ظ„ظ…ط³طھط­ظ‚</td>
                     <td className="px-3 py-3 text-center text-slate-600"> </td>
                     <td className="px-3 py-3 text-center text-slate-600"> </td>
                     <td className="px-3 py-3 text-center font-semibold text-rose-600">
@@ -172,10 +172,10 @@ export default function InvoiceViewPage() {
             <div className="mt-4 grid gap-4 lg:grid-cols-[1fr_260px]">
               <div className="rounded-md border border-slate-200 bg-slate-50 p-3 text-sm">
                 {[
-                  { label: "المجموع", value: "USD 70", tone: "text-slate-700" },
-                  { label: "التخفيض", value: "USD 0", tone: "text-slate-700" },
-                  { label: "المدفوع", value: "USD 55", tone: "text-slate-700" },
-                  { label: "المستحق", value: "USD 15", tone: "text-rose-600" },
+                  { label: "ط§ظ„ظ…ط¬ظ…ظˆط¹", value: "USD 70", tone: "text-slate-700" },
+                  { label: "ط§ظ„طھط®ظپظٹط¶", value: "USD 0", tone: "text-slate-700" },
+                  { label: "ط§ظ„ظ…ط¯ظپظˆط¹", value: "USD 55", tone: "text-slate-700" },
+                  { label: "ط§ظ„ظ…ط³طھط­ظ‚", value: "USD 15", tone: "text-rose-600" },
                 ].map((row) => (
                   <div
                     key={row.label}
@@ -188,22 +188,22 @@ export default function InvoiceViewPage() {
               </div>
 
               <div className="rounded-md border border-slate-200 bg-white p-3 text-sm">
-                <p className="font-semibold text-slate-700">الدفعات:</p>
+                <p className="font-semibold text-slate-700">ط§ظ„ط¯ظپط¹ط§طھ:</p>
                 <div className="mt-2 space-y-2 text-slate-600">
                   <div className="flex items-center justify-between rounded-md bg-slate-50 px-3 py-2">
                     <span>2024-09-06</span>
                     <span className="font-semibold text-slate-700">USD 55</span>
-                    <span className="text-xs text-slate-500">بايبال</span>
+                    <span className="text-xs text-slate-500">ط¨ط§ظٹط¨ط§ظ„</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="mt-4 text-sm text-slate-500">التاريخ: 2024-09-03</div>
+            <div className="mt-4 text-sm text-slate-500">ط§ظ„طھط§ط±ظٹط®: 2024-09-03</div>
           </div>
         </main>
 
-        <Sidebar activeLabel="الفواتير" />
+        <Sidebar activeLabel="ط§ظ„ظپظˆط§طھظٹط±" />
       </div>
 
       {modal && (
@@ -214,16 +214,16 @@ export default function InvoiceViewPage() {
                 !
               </div>
               <h3 className="text-lg font-semibold text-slate-700">
-                إرسال الفاتورة عبر البريد الإلكتروني
+                ط¥ط±ط³ط§ظ„ ط§ظ„ظپط§طھظˆط±ط© ط¹ط¨ط± ط§ظ„ط¨ط±ظٹط¯ ط§ظ„ط¥ظ„ظƒطھط±ظˆظ†ظٹ
               </h3>
               <p className="mt-2 text-sm text-slate-500">
-                سيتلقى العميل بريدًا إلكترونيًا بالفاتورة
+                ط³ظٹطھظ„ظ‚ظ‰ ط§ظ„ط¹ظ…ظٹظ„ ط¨ط±ظٹط¯ظ‹ط§ ط¥ظ„ظƒطھط±ظˆظ†ظٹظ‹ط§ ط¨ط§ظ„ظپط§طھظˆط±ط©
               </p>
               <p className="mt-4 text-2xl font-semibold text-rose-500">3220</p>
-              <p className="text-xs text-slate-500">أدخل الرقم في المربع أدناه للتأكيد</p>
+              <p className="text-xs text-slate-500">ط£ط¯ط®ظ„ ط§ظ„ط±ظ‚ظ… ظپظٹ ط§ظ„ظ…ط±ط¨ط¹ ط£ط¯ظ†ط§ظ‡ ظ„ظ„طھط£ظƒظٹط¯</p>
               <input
                 className="mt-4 w-full rounded-md border border-slate-200 px-3 py-2 text-center text-sm"
-                placeholder="ادخل رمز التأكيد"
+                placeholder="ط§ط¯ط®ظ„ ط±ظ…ط² ط§ظ„طھط£ظƒظٹط¯"
               />
               <div className="mt-4 flex items-center justify-center gap-2">
                 <button
@@ -231,14 +231,14 @@ export default function InvoiceViewPage() {
                   onClick={() => setModal(null)}
                   className="rounded-md bg-slate-200 px-4 py-2 text-sm text-slate-700"
                 >
-                  إلغاء
+                  ط¥ظ„ط؛ط§ط،
                 </button>
                 <button
                   type="button"
                   onClick={() => setModal("link")}
-                  className="rounded-md bg-[#071a2c] px-4 py-2 text-sm text-white"
+                  className="rounded-md bg-brand-900 px-4 py-2 text-sm text-white"
                 >
-                  متابعة
+                  ظ…طھط§ط¨ط¹ط©
                 </button>
               </div>
             </div>
@@ -247,18 +247,18 @@ export default function InvoiceViewPage() {
           {modal === "link" && (
             <div className="w-full max-w-md rounded-lg bg-white p-6 text-center shadow-xl" dir="rtl">
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-emerald-300 text-emerald-400">
-                ✓
+                âœ“
               </div>
-              <h3 className="text-lg font-semibold text-slate-700">تم نسخ رابط المشاركة</h3>
+              <h3 className="text-lg font-semibold text-slate-700">طھظ… ظ†ط³ط® ط±ط§ط¨ط· ط§ظ„ظ…ط´ط§ط±ظƒط©</h3>
               <p className="mt-3 text-sm text-slate-500">
                 {shareLink}
               </p>
               <button
                 type="button"
                 onClick={() => setModal(null)}
-                className="mt-4 rounded-md bg-[#071a2c] px-6 py-2 text-sm text-white"
+                className="mt-4 rounded-md bg-brand-900 px-6 py-2 text-sm text-white"
               >
-                حسناً
+                ط­ط³ظ†ط§ظ‹
               </button>
             </div>
           )}

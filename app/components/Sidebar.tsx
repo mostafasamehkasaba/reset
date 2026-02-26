@@ -57,7 +57,7 @@ export default function Sidebar({ activeLabel }: SidebarProps) {
                 key={item.label}
                 className={`flex items-center justify-between gap-2 px-3 py-2 text-right ${
                   isActive
-                    ? "border-r-4 border-[#0e2a47] bg-[#0e2a47] text-white"
+                    ? "border-r-4 border-brand-800 bg-brand-800 text-white"
                     : "text-slate-600 hover:bg-slate-50"
                 }`}
                 href={item.href}

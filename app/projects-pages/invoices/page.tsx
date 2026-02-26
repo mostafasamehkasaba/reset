@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useMemo, useState } from "react";
 import Sidebar from "../../components/Sidebar";
@@ -13,10 +13,10 @@ const invoices = [
     discount: 0,
     due: 20,
     currency: "OMR",
-    status: "لم يتم الدفع",
+    status: "ظ„ظ… ظٹطھظ… ط§ظ„ط¯ظپط¹",
     date: "17-09-2024",
-    dueDate: "لا يوجد",
-    client: "لا يوجد",
+    dueDate: "ظ„ط§ ظٹظˆط¬ط¯",
+    client: "ظ„ط§ ظٹظˆط¬ط¯",
   },
   {
     id: "24091900037",
@@ -27,10 +27,10 @@ const invoices = [
     discount: 0,
     due: 0,
     currency: "USD",
-    status: "المدفوع",
+    status: "ط§ظ„ظ…ط¯ظپظˆط¹",
     date: "16-09-2024",
-    dueDate: "لا يوجد",
-    client: "لا يوجد",
+    dueDate: "ظ„ط§ ظٹظˆط¬ط¯",
+    client: "ظ„ط§ ظٹظˆط¬ط¯",
   },
   {
     id: "24090700036",
@@ -41,10 +41,10 @@ const invoices = [
     discount: 0,
     due: 0,
     currency: "OMR",
-    status: "المدفوع",
+    status: "ط§ظ„ظ…ط¯ظپظˆط¹",
     date: "04-09-2024",
-    dueDate: "لا يوجد",
-    client: "لا يوجد",
+    dueDate: "ظ„ط§ ظٹظˆط¬ط¯",
+    client: "ظ„ط§ ظٹظˆط¬ط¯",
   },
   {
     id: "24090700035",
@@ -55,10 +55,10 @@ const invoices = [
     discount: 0,
     due: 0,
     currency: "OMR",
-    status: "المدفوع",
+    status: "ط§ظ„ظ…ط¯ظپظˆط¹",
     date: "04-09-2024",
-    dueDate: "لا يوجد",
-    client: "لا يوجد",
+    dueDate: "ظ„ط§ ظٹظˆط¬ط¯",
+    client: "ظ„ط§ ظٹظˆط¬ط¯",
   },
   {
     id: "24090600034",
@@ -69,10 +69,10 @@ const invoices = [
     discount: 0,
     due: 0,
     currency: "OMR",
-    status: "المدفوع",
+    status: "ط§ظ„ظ…ط¯ظپظˆط¹",
     date: "03-09-2024",
-    dueDate: "لا يوجد",
-    client: "احمد سعيد",
+    dueDate: "ظ„ط§ ظٹظˆط¬ط¯",
+    client: "ط§ط­ظ…ط¯ ط³ط¹ظٹط¯",
   },
   {
     id: "24090600033",
@@ -83,10 +83,10 @@ const invoices = [
     discount: 0,
     due: 15,
     currency: "USD",
-    status: "تم الدفع جزئيا",
+    status: "طھظ… ط§ظ„ط¯ظپط¹ ط¬ط²ط¦ظٹط§",
     date: "03-09-2024",
-    dueDate: "لا يوجد",
-    client: "احمد سعيد",
+    dueDate: "ظ„ط§ ظٹظˆط¬ط¯",
+    client: "ط§ط­ظ…ط¯ ط³ط¹ظٹط¯",
   },
   {
     id: "24090600032",
@@ -97,10 +97,10 @@ const invoices = [
     discount: 0,
     due: 0,
     currency: "USD",
-    status: "المدفوع",
+    status: "ط§ظ„ظ…ط¯ظپظˆط¹",
     date: "03-09-2024",
-    dueDate: "لا يوجد",
-    client: "لا يوجد",
+    dueDate: "ظ„ط§ ظٹظˆط¬ط¯",
+    client: "ظ„ط§ ظٹظˆط¬ط¯",
   },
   {
     id: "24090600031",
@@ -111,10 +111,10 @@ const invoices = [
     discount: 0,
     due: 0,
     currency: "OMR",
-    status: "المدفوع",
+    status: "ط§ظ„ظ…ط¯ظپظˆط¹",
     date: "03-09-2024",
     dueDate: "24-09-2024",
-    client: "احمد سعيد",
+    client: "ط§ط­ظ…ط¯ ط³ط¹ظٹط¯",
   },
   {
     id: "24090600030",
@@ -125,10 +125,10 @@ const invoices = [
     discount: 0,
     due: 0,
     currency: "USD",
-    status: "المدفوع",
+    status: "ط§ظ„ظ…ط¯ظپظˆط¹",
     date: "03-09-2024",
     dueDate: "22-09-2024",
-    client: "سامي ابو انس",
+    client: "ط³ط§ظ…ظٹ ط§ط¨ظˆ ط§ظ†ط³",
   },
   {
     id: "24090600029",
@@ -139,10 +139,10 @@ const invoices = [
     discount: 0,
     due: 50,
     currency: "USD",
-    status: "لم يتم الدفع",
+    status: "ظ„ظ… ظٹطھظ… ط§ظ„ط¯ظپط¹",
     date: "03-09-2024",
-    dueDate: "لا يوجد",
-    client: "علي هاني",
+    dueDate: "ظ„ط§ ظٹظˆط¬ط¯",
+    client: "ط¹ظ„ظٹ ظ‡ط§ظ†ظٹ",
   },
   {
     id: "24090600028",
@@ -153,10 +153,10 @@ const invoices = [
     discount: 0,
     due: 0,
     currency: "USD",
-    status: "المدفوع",
+    status: "ط§ظ„ظ…ط¯ظپظˆط¹",
     date: "03-09-2024",
-    dueDate: "لا يوجد",
-    client: "احمد سعيد",
+    dueDate: "ظ„ط§ ظٹظˆط¬ط¯",
+    client: "ط§ط­ظ…ط¯ ط³ط¹ظٹط¯",
   },
   {
     id: "24083100027",
@@ -167,10 +167,10 @@ const invoices = [
     discount: 0,
     due: 0,
     currency: "USD",
-    status: "المدفوع",
+    status: "ط§ظ„ظ…ط¯ظپظˆط¹",
     date: "30-09-2024",
-    dueDate: "لا يوجد",
-    client: "لا يوجد",
+    dueDate: "ظ„ط§ ظٹظˆط¬ط¯",
+    client: "ظ„ط§ ظٹظˆط¬ط¯",
   },
   {
     id: "24083100026",
@@ -181,10 +181,10 @@ const invoices = [
     discount: 0,
     due: 95,
     currency: "QAR",
-    status: "لم يتم الدفع",
+    status: "ظ„ظ… ظٹطھظ… ط§ظ„ط¯ظپط¹",
     date: "30-09-2024",
-    dueDate: "لا يوجد",
-    client: "سامي ابو انس",
+    dueDate: "ظ„ط§ ظٹظˆط¬ط¯",
+    client: "ط³ط§ظ…ظٹ ط§ط¨ظˆ ط§ظ†ط³",
   },
   {
     id: "24083100025",
@@ -195,10 +195,10 @@ const invoices = [
     discount: 0,
     due: 0,
     currency: "OMR",
-    status: "المدفوع",
+    status: "ط§ظ„ظ…ط¯ظپظˆط¹",
     date: "30-09-2024",
-    dueDate: "لا يوجد",
-    client: "لا يوجد",
+    dueDate: "ظ„ط§ ظٹظˆط¬ط¯",
+    client: "ظ„ط§ ظٹظˆط¬ط¯",
   },
   {
     id: "24083100024",
@@ -209,17 +209,17 @@ const invoices = [
     discount: 0,
     due: 0,
     currency: "OMR",
-    status: "المدفوع",
+    status: "ط§ظ„ظ…ط¯ظپظˆط¹",
     date: "30-09-2024",
     dueDate: "04-09-2024",
-    client: "لا يوجد",
+    client: "ظ„ط§ ظٹظˆط¬ط¯",
   },
 ];
 
 const statusStyles: Record<string, string> = {
-  "المدفوع": "text-emerald-700 bg-emerald-50 border-emerald-200",
-  "لم يتم الدفع": "text-rose-700 bg-rose-50 border-rose-200",
-  "تم الدفع جزئيا": "text-sky-700 bg-sky-50 border-sky-200",
+  "ط§ظ„ظ…ط¯ظپظˆط¹": "text-emerald-700 bg-emerald-50 border-emerald-200",
+  "ظ„ظ… ظٹطھظ… ط§ظ„ط¯ظپط¹": "text-rose-700 bg-rose-50 border-rose-200",
+  "طھظ… ط§ظ„ط¯ظپط¹ ط¬ط²ط¦ظٹط§": "text-sky-700 bg-sky-50 border-sky-200",
 };
 
 export default function InvoicesPage() {
@@ -231,12 +231,12 @@ export default function InvoicesPage() {
 
   return (
     <div className="min-h-screen w-full bg-slate-100 text-slate-800">
-      <header className="bg-[#071a2c] text-white shadow-sm" dir="ltr">
+      <header className="bg-brand-900 text-white shadow-sm" dir="ltr">
         <div className="flex h-14 w-full items-center justify-between px-6">
           <div className="flex items-center gap-3 text-slate-200">
             <button
               className="rounded-md p-1 transition hover:bg-white/10"
-              aria-label="الصفحة الرئيسية"
+              aria-label="ط§ظ„طµظپط­ط© ط§ظ„ط±ط¦ظٹط³ظٹط©"
             >
               <svg
                 aria-hidden="true"
@@ -252,7 +252,7 @@ export default function InvoicesPage() {
             </button>
             <button
               className="rounded-md p-1 transition hover:bg-white/10"
-              aria-label="المستخدم"
+              aria-label="ط§ظ„ظ…ط³طھط®ط¯ظ…"
             >
               <svg
                 aria-hidden="true"
@@ -268,7 +268,7 @@ export default function InvoicesPage() {
             </button>
             <button
               className="rounded-md p-1 transition hover:bg-white/10"
-              aria-label="القائمة الرئيسية"
+              aria-label="ط§ظ„ظ‚ط§ط¦ظ…ط© ط§ظ„ط±ط¦ظٹط³ظٹط©"
             >
               <svg
                 aria-hidden="true"
@@ -282,7 +282,7 @@ export default function InvoicesPage() {
               </svg>
             </button>
           </div>
-          <div className="text-right text-base font-semibold">فاتورة+</div>
+          <div className="text-right text-base font-semibold">ظپط§طھظˆط±ط©+</div>
         </div>
       </header>
 
@@ -292,9 +292,9 @@ export default function InvoicesPage() {
             <div className="flex items-center gap-2">
               <a
                 href="/projects-pages/invoices/new"
-                className="rounded-full bg-[#0e2a47] px-4 py-2 text-sm text-white shadow-sm"
+                className="rounded-full bg-brand-800 px-4 py-2 text-sm text-white shadow-sm"
               >
-                جديد +
+                ط¬ط¯ظٹط¯ +
               </a>
               <div className="flex items-center overflow-hidden rounded-full border border-slate-200 bg-white shadow-sm">
                 <span className="grid h-10 w-10 place-items-center bg-emerald-500 text-white">
@@ -312,12 +312,12 @@ export default function InvoicesPage() {
                 </span>
                 <input
                   className="h-10 w-48 px-3 text-sm outline-none"
-                  placeholder="بحث"
+                  placeholder="ط¨ط­ط«"
                 />
               </div>
             </div>
             <div className="text-right">
-              <p className="text-lg font-semibold text-slate-700">الفواتير</p>
+              <p className="text-lg font-semibold text-slate-700">ط§ظ„ظپظˆط§طھظٹط±</p>
             </div>
           </div>
 
@@ -327,19 +327,19 @@ export default function InvoicesPage() {
                 <thead className="bg-slate-50 text-slate-600">
                   <tr>
                     <th className="px-3 py-3 text-center">#</th>
-                    <th className="px-3 py-3 text-center">رقم الفاتورة</th>
-                    <th className="px-3 py-3 text-center">المنتجات</th>
-                    <th className="px-3 py-3 text-center">المجموع</th>
-                    <th className="px-3 py-3 text-center">المدفوع</th>
-                    <th className="px-3 py-3 text-center">التخفيض</th>
-                    <th className="px-3 py-3 text-center">المستحق</th>
-                    <th className="px-3 py-3 text-center">العملة</th>
-                    <th className="px-3 py-3 text-center">الحالة</th>
-                    <th className="px-3 py-3 text-center">التاريخ</th>
-                    <th className="px-3 py-3 text-center">تاريخ الاستحقاق</th>
-                    <th className="px-3 py-3 text-center">العميل</th>
-                    <th className="px-3 py-3 text-center" aria-label="الإجراءات">
-                      …
+                    <th className="px-3 py-3 text-center">ط±ظ‚ظ… ط§ظ„ظپط§طھظˆط±ط©</th>
+                    <th className="px-3 py-3 text-center">ط§ظ„ظ…ظ†طھط¬ط§طھ</th>
+                    <th className="px-3 py-3 text-center">ط§ظ„ظ…ط¬ظ…ظˆط¹</th>
+                    <th className="px-3 py-3 text-center">ط§ظ„ظ…ط¯ظپظˆط¹</th>
+                    <th className="px-3 py-3 text-center">ط§ظ„طھط®ظپظٹط¶</th>
+                    <th className="px-3 py-3 text-center">ط§ظ„ظ…ط³طھط­ظ‚</th>
+                    <th className="px-3 py-3 text-center">ط§ظ„ط¹ظ…ظ„ط©</th>
+                    <th className="px-3 py-3 text-center">ط§ظ„ط­ط§ظ„ط©</th>
+                    <th className="px-3 py-3 text-center">ط§ظ„طھط§ط±ظٹط®</th>
+                    <th className="px-3 py-3 text-center">طھط§ط±ظٹط® ط§ظ„ط§ط³طھط­ظ‚ط§ظ‚</th>
+                    <th className="px-3 py-3 text-center">ط§ظ„ط¹ظ…ظٹظ„</th>
+                    <th className="px-3 py-3 text-center" aria-label="ط§ظ„ط¥ط¬ط±ط§ط،ط§طھ">
+                      â€¦
                     </th>
                   </tr>
                 </thead>
@@ -397,7 +397,7 @@ export default function InvoicesPage() {
                           type="button"
                           onClick={() => setOpenId(invoice.id)}
                           className="rounded-full p-1 hover:bg-slate-200"
-                          aria-label="خيارات"
+                          aria-label="ط®ظٹط§ط±ط§طھ"
                         >
                           <svg
                             aria-hidden="true"
@@ -419,7 +419,7 @@ export default function InvoicesPage() {
           </div>
         </main>
 
-        <Sidebar activeLabel="الفواتير" />
+        <Sidebar activeLabel="ط§ظ„ظپظˆط§طھظٹط±" />
       </div>
 
       {selectedInvoice && (
@@ -431,37 +431,37 @@ export default function InvoicesPage() {
             <div className="flex items-center justify-between border-b border-slate-200 pb-3">
               <div className="text-right">
                 <p className="text-sm font-semibold text-slate-700">
-                  خيارات الفاتورة
+                  ط®ظٹط§ط±ط§طھ ط§ظ„ظپط§طھظˆط±ط©
                 </p>
                 <p className="text-xs text-slate-500">
-                  رقم: {selectedInvoice.id}
+                  ط±ظ‚ظ…: {selectedInvoice.id}
                 </p>
               </div>
               <button
                 type="button"
                 onClick={() => setOpenId(null)}
                 className="rounded-full p-1 text-slate-500 hover:bg-slate-100"
-                aria-label="إغلاق"
+                aria-label="ط¥ط؛ظ„ط§ظ‚"
               >
-                ✕
+                âœ•
               </button>
             </div>
 
             <div className="mt-4 space-y-2 text-sm">
               <div className="flex items-center justify-between rounded-md bg-slate-50 px-3 py-2">
-                <span className="text-slate-600">العميل</span>
+                <span className="text-slate-600">ط§ظ„ط¹ظ…ظٹظ„</span>
                 <span className="font-semibold text-slate-700">
                   {selectedInvoice.client}
                 </span>
               </div>
               <div className="flex items-center justify-between rounded-md bg-slate-50 px-3 py-2">
-                <span className="text-slate-600">الإجمالي</span>
+                <span className="text-slate-600">ط§ظ„ط¥ط¬ظ…ط§ظ„ظٹ</span>
                 <span className="font-semibold text-emerald-700">
                   {selectedInvoice.total} {selectedInvoice.currency}
                 </span>
               </div>
               <div className="flex items-center justify-between rounded-md bg-slate-50 px-3 py-2">
-                <span className="text-slate-600">الحالة</span>
+                <span className="text-slate-600">ط§ظ„ط­ط§ظ„ط©</span>
                 <span className="font-semibold text-slate-700">
                   {selectedInvoice.status}
                 </span>
@@ -473,30 +473,30 @@ export default function InvoicesPage() {
                 className="rounded-md border border-slate-200 bg-white px-3 py-2 text-center text-slate-600 hover:bg-slate-50"
                 href="/projects-pages/invoices/view"
               >
-                عرض
+                ط¹ط±ط¶
               </a>
               <a
                 className="rounded-md border border-slate-200 bg-white px-3 py-2 text-center text-slate-600 hover:bg-slate-50"
                 href="/projects-pages/invoices/new"
               >
-                تعديل
+                طھط¹ط¯ظٹظ„
               </a>
               <button
                 className="rounded-md border border-slate-200 bg-white px-3 py-2 text-slate-600 hover:bg-slate-50"
                 type="button"
                 onClick={() => window.print()}
               >
-                طباعة
+                ط·ط¨ط§ط¹ط©
               </button>
               <button
                 className="rounded-md border border-rose-200 bg-rose-50 px-3 py-2 text-rose-700 hover:bg-rose-100"
                 type="button"
                 onClick={() => {
-                  alert("تم حذف الفاتورة (واجهة فقط)");
+                  alert("طھظ… ط­ط°ظپ ط§ظ„ظپط§طھظˆط±ط© (ظˆط§ط¬ظ‡ط© ظپظ‚ط·)");
                   setOpenId(null);
                 }}
               >
-                حذف
+                ط­ط°ظپ
               </button>
             </div>
           </div>

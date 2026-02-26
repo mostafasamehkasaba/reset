@@ -113,7 +113,7 @@ const chartOptions = {
 export default function HomePage() {
   return (
     <div className="min-h-screen w-full bg-slate-100 text-slate-800">
-      <header className="bg-[#071a2c] text-white shadow-sm" dir="ltr">
+      <header className="bg-brand-900 text-white shadow-sm" dir="ltr">
         <div className="flex h-14 w-full items-center justify-between px-6">
           <div className="flex items-center gap-3 text-slate-200">
             <button
@@ -195,7 +195,7 @@ export default function HomePage() {
             <section className="order-1 flex flex-col rounded-lg border border-slate-200 bg-white p-4 shadow-sm lg:order-2 lg:min-h-[560px]">
               <div className="flex flex-wrap items-center justify-between gap-3 text-sm text-slate-600">
                 <div className="flex items-center gap-2">
-                  <button className="inline-flex items-center gap-2 rounded-md bg-[#0e2a47] px-3 py-1 text-white shadow-sm">
+                  <button className="inline-flex items-center gap-2 rounded-md bg-brand-800 px-3 py-1 text-white shadow-sm">
                     فلترة
                     <svg
                       aria-hidden="true"
