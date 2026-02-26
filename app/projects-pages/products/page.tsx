@@ -19,7 +19,7 @@ const products = [
 ];
 
 export default function ProductsPage() {
-  const [query, setQuery] = useState(\"\"\);
+  const [query, setQuery] = useState("");
   const [openId, setOpenId] = useState<number | null>(null);
   const filteredProducts = useMemo(() => {
     const q = query.trim();
