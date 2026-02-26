@@ -1,10 +1,11 @@
 ﻿import Link from "next/link";
 import Sidebar from "../../../components/Sidebar";
+import SidebarToggle from "../../../components/SidebarToggle";
 
 const items = [
-  { name: "ظ‚ط§ظ„ط¨ ظˆظˆط±ط¯ط¨ط±ظٹط³", price: 20, qty: 1, total: 20 },
-  { name: "طھطµظ…ظٹظ… ظ…ظˆظ‚ط¹", price: 30, qty: 1, total: 30 },
-  { name: "ط§ط¹ط¯ط§ط¯ ط³ظٹط±ظپط±", price: 50, qty: 1, total: 50 },
+  { name: "قالب ووردبريس", price: 20, qty: 1, total: 20 },
+  { name: "تصميم موقع", price: 30, qty: 1, total: 30 },
+  { name: "إعداد سيرفر", price: 50, qty: 1, total: 50 },
 ];
 
 export default function NewInvoicePage() {
@@ -15,7 +16,7 @@ export default function NewInvoicePage() {
           <div className="flex items-center gap-3 text-slate-200">
             <button
               className="rounded-md p-1 transition hover:bg-white/10"
-              aria-label="ط§ظ„طµظپط­ط© ط§ظ„ط±ط¦ظٹط³ظٹط©"
+              aria-label="الصفحة الرئيسية"
             >
               <svg
                 aria-hidden="true"
@@ -31,7 +32,7 @@ export default function NewInvoicePage() {
             </button>
             <button
               className="rounded-md p-1 transition hover:bg-white/10"
-              aria-label="ط§ظ„ظ…ط³طھط®ط¯ظ…"
+              aria-label="المستخدم"
             >
               <svg
                 aria-hidden="true"
@@ -45,23 +46,9 @@ export default function NewInvoicePage() {
                 <path d="M4.5 20c1.8-3 5-4.5 7.5-4.5s5.7 1.5 7.5 4.5" />
               </svg>
             </button>
-            <button
-              className="rounded-md p-1 transition hover:bg-white/10"
-              aria-label="ط§ظ„ظ‚ط§ط¦ظ…ط© ط§ظ„ط±ط¦ظٹط³ظٹط©"
-            >
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                className="h-5 w-5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              >
-                <path d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
+            <SidebarToggle />
           </div>
-          <div className="text-right text-base font-semibold">ظپط§طھظˆط±ط©+</div>
+          <div className="text-right text-base font-semibold">فاتورة+</div>
         </div>
       </header>
 
@@ -69,13 +56,13 @@ export default function NewInvoicePage() {
         <main className="flex-1 space-y-4" dir="rtl">
           <div className="flex items-center justify-between rounded-lg border border-slate-200 bg-white px-4 py-3 shadow-sm">
             <div className="text-right text-lg font-semibold text-slate-700">
-              ط§ظ„ظپظˆط§طھظٹط±
+              فاتورة جديدة
             </div>
             <Link
               href="/projects-pages/invoices"
               className="rounded-md bg-slate-100 px-3 py-1 text-sm text-slate-600"
             >
-              ط¬ط¯ظٹط¯
+              رجوع
             </Link>
           </div>
 
@@ -83,152 +70,174 @@ export default function NewInvoicePage() {
             <aside className="space-y-3 rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-slate-700">
-                  ط§ظ„ط¹ظ…ظ„ط©
+                  العملة
                 </label>
                 <select className="w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm">
-                  <option>ط±ظٹط§ظ„ ط§ظ„ط³ط¹ظˆط¯ظٹ</option>
-                  <option>ط±ظٹط§ظ„ ط¹ظ…ط§ظ†ظٹ</option>
-                  <option>ط¯ظˆظ„ط§ط±</option>
+                  <option>ريال سعودي</option>
+                  <option>ريال عُماني</option>
+                  <option>دولار</option>
                 </select>
               </div>
 
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-slate-700">
-                  طھط§ط±ظٹط® ط§ظ„ظƒطھط§ط¨ط©
+                  تاريخ الإصدار
                 </label>
                 <div className="relative">
                   <input
                     type="text"
-                    defaultValue="09/28/2024"
+                    defaultValue="28/09/2024"
                     className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm"
                   />
                   <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
-                    ًں“…
+                    📅
                   </span>
                 </div>
               </div>
 
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-slate-700">
-                  طھط§ط±ظٹط® ط§ظ„ط§ط³طھط­ظ‚ط§ظ‚
+                  تاريخ الاستحقاق
                 </label>
                 <div className="relative">
                   <input
                     type="text"
-                    defaultValue="10/01/2024"
+                    defaultValue="01/10/2024"
                     className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm"
                   />
                   <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
-                    ًں“…
+                    📅
                   </span>
                 </div>
               </div>
 
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-slate-700">
-                  ط§ظ„ط¹ظ…ظٹظ„
+                  الحالة
                 </label>
                 <select className="w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm">
-                  <option>ط³ط§ظ…ظٹ ط§ط¨ظˆ ط§ظ†ط³</option>
-                  <option>ط§ط­ظ…ط¯ ط³ط¹ظٹط¯</option>
-                  <option>ط¹ظ„ظٹ ظ‡ط§ظ†ظٹ</option>
+                  <option>غير مدفوع</option>
+                  <option>مدفوع</option>
+                  <option>مدفوع جزئيًا</option>
                 </select>
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-sm font-semibold text-slate-700">
-                  ظ…ظ„ط§ط­ط¸ط§طھ
-                </label>
-                <textarea
-                  rows={6}
-                  className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm"
-                />
               </div>
             </aside>
 
             <section className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-              <div className="grid grid-cols-[40px_1fr_120px_120px_120px_120px] gap-2 text-right text-sm font-semibold text-slate-600">
-                <span>#</span>
-                <span>ط§ظ„ط§ط³ظ…</span>
-                <span>ط§ظ„ط³ط¹ط±</span>
-                <span>ط§ظ„ظƒظ…ظٹط©</span>
-                <span>ط§ظ„ظ…ط¬ظ…ظˆط¹</span>
-                <span className="text-center">ط­ط°ظپ</span>
-              </div>
-
-              <div className="mt-3 space-y-2">
-                {items.map((item, idx) => (
-                  <div
-                    key={item.name}
-                    className="grid grid-cols-[40px_1fr_120px_120px_120px_120px] items-center gap-2 rounded-md border border-slate-200 px-2 py-2 text-sm"
-                  >
-                    <span>{idx + 1}</span>
-                    <input
-                      className="rounded-md border border-slate-200 px-2 py-1"
-                      defaultValue={item.name}
-                    />
-                    <input
-                      className="rounded-md border border-slate-200 px-2 py-1 text-center"
-                      defaultValue={item.price}
-                    />
-                    <input
-                      className="rounded-md border border-slate-200 px-2 py-1 text-center"
-                      defaultValue={item.qty}
-                    />
-                    <input
-                      className="rounded-md border border-slate-200 px-2 py-1 text-center"
-                      defaultValue={item.total}
-                    />
-                    <button className="mx-auto flex h-8 w-8 items-center justify-center rounded-md border border-slate-200 text-slate-500 hover:bg-slate-50">
-                      ًں—‘
-                    </button>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-4 grid gap-3">
-                <div className="grid grid-cols-[1fr_140px] items-center gap-2 text-sm">
-                  <div className="text-right font-semibold text-slate-700">
-                    ط§ظ„ظ…ط¬ظ…ظˆط¹
-                  </div>
+              <div className="grid gap-4 lg:grid-cols-2">
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-slate-700">
+                    اسم العميل
+                  </label>
                   <input
-                    className="rounded-md border border-slate-200 px-2 py-1 text-center"
-                    defaultValue="100"
+                    className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm"
+                    placeholder="مثال: أحمد سعيد"
                   />
                 </div>
-                <div className="grid grid-cols-[1fr_140px] items-center gap-2 text-sm">
-                  <div className="text-right font-semibold text-slate-700">
-                    ط§ظ„طھط®ظپظٹط¶
-                  </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-slate-700">
+                    البريد الإلكتروني
+                  </label>
                   <input
-                    className="rounded-md border border-slate-200 px-2 py-1 text-center"
-                    defaultValue="0"
+                    className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm"
+                    placeholder="example@example.com"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-slate-700">
+                    الهاتف
+                  </label>
+                  <input
+                    className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm"
+                    placeholder="+966 50 000 0000"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-slate-700">
+                    العنوان
+                  </label>
+                  <input
+                    className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm"
+                    placeholder="الرياض"
                   />
                 </div>
               </div>
 
-              <div className="mt-4 rounded-md border border-rose-200 bg-rose-100 px-4 py-3 text-right text-lg font-semibold text-rose-700">
-                ط§ظ„ظ…ط³طھط­ظ‚ <span className="float-left">100</span>
+              <div className="mt-4 overflow-hidden rounded-lg border border-slate-200">
+                <table className="min-w-full text-right text-sm">
+                  <thead className="bg-slate-50 text-slate-600">
+                    <tr>
+                      <th className="px-3 py-3">المنتج</th>
+                      <th className="px-3 py-3 text-center">السعر</th>
+                      <th className="px-3 py-3 text-center">الكمية</th>
+                      <th className="px-3 py-3 text-center">الإجمالي</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {items.map((item) => (
+                      <tr key={item.name} className="border-t border-slate-200">
+                        <td className="px-3 py-3 font-semibold text-slate-700">
+                          {item.name}
+                        </td>
+                        <td className="px-3 py-3 text-center text-slate-600">
+                          {item.price}
+                        </td>
+                        <td className="px-3 py-3 text-center text-slate-600">
+                          {item.qty}
+                        </td>
+                        <td className="px-3 py-3 text-center font-semibold text-slate-700">
+                          {item.total}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
 
-              <div className="mt-4 flex items-center justify-between">
-                <Link
-                  href="/projects-pages/invoices/view"
-                  className="rounded-full bg-brand-900 px-8 py-2 text-sm text-white"
-                >
-                  ط­ظپط¸
-                </Link>
-                <button className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600">
-                  ظ…ظ†طھط¬ +
+              <div className="mt-4 grid gap-4 lg:grid-cols-2">
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-slate-700">
+                    ملاحظات
+                  </label>
+                  <textarea
+                    rows={4}
+                    className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm"
+                    placeholder="أضف ملاحظات إضافية للفاتورة"
+                  />
+                </div>
+                <div className="space-y-2 rounded-lg border border-slate-200 bg-slate-50 p-3 text-sm">
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-600">الإجمالي</span>
+                    <span className="font-semibold text-slate-700">100</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-600">الخصم</span>
+                    <span className="font-semibold text-slate-700">0</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-600">الإجمالي النهائي</span>
+                    <span className="font-semibold text-emerald-700">100</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 flex items-center justify-between">
+                <button className="rounded-full bg-brand-900 px-8 py-2 text-sm text-white">
+                  حفظ الفاتورة
                 </button>
+                <Link
+                  href="/projects-pages/invoices"
+                  className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600"
+                >
+                  إلغاء
+                </Link>
               </div>
             </section>
           </div>
         </main>
 
-        <Sidebar activeLabel="ط§ظ„ظپظˆط§طھظٹط±" />
+        <Sidebar activeLabel="الفواتير" />
       </div>
     </div>
   );
 }
-

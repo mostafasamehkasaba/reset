@@ -1,6 +1,7 @@
 ﻿import type { Metadata } from "next";
 import { Cairo, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { SidebarProvider } from "./components/SidebarContext";
 
 const cairo = Cairo({
   variable: "--font-cairo",
@@ -43,7 +44,7 @@ export default function RootLayout({
     <html lang="ar" dir="rtl" suppressHydrationWarning>
       <body className={`${cairo.variable} ${geistMono.variable} antialiased`}>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-        {children}
+        <SidebarProvider>{children}</SidebarProvider>
       </body>
     </html>
   );

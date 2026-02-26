@@ -12,6 +12,7 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import Sidebar from "../../components/Sidebar";
+import SidebarToggle from "../../components/SidebarToggle";
 
 ChartJS.register(
   CategoryScale,
@@ -116,53 +117,7 @@ export default function HomePage() {
       <header className="bg-brand-900 text-white shadow-sm" dir="ltr">
         <div className="flex h-14 w-full items-center justify-between px-6">
           <div className="flex items-center gap-3 text-slate-200">
-            <button
-              className="rounded-md p-1 transition hover:bg-white/10"
-              aria-label="الصفحة الرئيسية"
-            >
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                className="h-5 w-5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              >
-                <path d="M3 11.5L12 4l9 7.5" />
-                <path d="M6 10v10h12V10" />
-              </svg>
-            </button>
-            <button
-              className="rounded-md p-1 transition hover:bg-white/10"
-              aria-label="المستخدم"
-            >
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                className="h-5 w-5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              >
-                <circle cx="12" cy="8" r="3.5" />
-                <path d="M4.5 20c1.8-3 5-4.5 7.5-4.5s5.7 1.5 7.5 4.5" />
-              </svg>
-            </button>
-            <button
-              className="rounded-md p-1 transition hover:bg-white/10"
-              aria-label="القائمة الرئيسية"
-            >
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                className="h-5 w-5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              >
-                <path d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
+            <SidebarToggle />
           </div>
           <div className="text-right text-base font-semibold">فاتورة+</div>
         </div>
@@ -191,8 +146,14 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_320px]">
-            <section className="order-1 flex flex-col rounded-lg border border-slate-200 bg-white p-4 shadow-sm lg:order-2 lg:min-h-[560px]">
+          <div
+            className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_360px]"
+            dir="ltr"
+          >
+            <section
+              className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
+              dir="rtl"
+            >
               <div className="flex flex-wrap items-center justify-between gap-3 text-sm text-slate-600">
                 <div className="flex items-center gap-2">
                   <button className="inline-flex items-center gap-2 rounded-md bg-brand-800 px-3 py-1 text-white shadow-sm">
@@ -273,7 +234,7 @@ export default function HomePage() {
               </div>
             </section>
 
-            <aside className="order-2 space-y-3 lg:order-1 lg:flex lg:min-h-[560px] lg:flex-col lg:justify-between">
+            <aside className="space-y-3" dir="rtl">
               <div className="rounded-lg border border-blue-200 bg-blue-50 p-4 shadow-sm">
                 <div className="flex items-center justify-between text-blue-900">
                   <div className="rounded-full bg-blue-200/60 p-2">

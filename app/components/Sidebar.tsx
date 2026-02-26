@@ -12,6 +12,7 @@ import {
   Info,
 } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
+import { useSidebar } from "./SidebarContext";
 
 type SidebarProps = {
   activeLabel:
@@ -42,49 +43,74 @@ const items = [
 ];
 
 export default function Sidebar({ activeLabel }: SidebarProps) {
+  const { open, close } = useSidebar();
+
   return (
-    <aside className="hidden w-60 shrink-0 lg:block" dir="rtl">
-      <div className="rounded-lg border border-slate-200 bg-white py-2 shadow-sm">
-        <div className="px-4 py-2 text-right text-sm font-semibold text-slate-700">
-          القائمة
-        </div>
-        <nav className="space-y-1 text-sm">
-          {items.map((item) => {
-            const isActive = item.label === activeLabel;
-            const Icon = item.icon;
-            return (
-              <Link
-                key={item.label}
-                className={`flex items-center justify-between gap-2 px-3 py-2 text-right ${
-                  isActive
-                    ? "border-r-4 border-brand-800 bg-brand-800 text-white"
-                    : "text-slate-600 hover:bg-slate-50"
-                }`}
-                href={item.href}
-              >
-                <span className="flex items-center gap-2">
-                  <Icon
-                    className={`h-4 w-4 ${
-                      isActive ? "text-white" : "text-slate-400"
-                    }`}
-                  />
-                  {item.label}
-                </span>
-                <span
-                  className={`text-xs ${
-                    isActive ? "text-white/80" : "text-slate-400"
+    <>
+      <div
+        className={`fixed inset-0 z-40 bg-black/40 transition lg:hidden ${
+          open ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
+        onClick={close}
+        aria-hidden="true"
+      />
+      <aside
+        className={`fixed inset-y-0 right-0 z-50 w-72 translate-x-full overflow-y-auto bg-white transition duration-200 lg:static lg:block lg:w-60 lg:translate-x-0 ${
+          open ? "translate-x-0" : ""
+        }`}
+        dir="rtl"
+      >
+        <div className="rounded-lg border border-slate-200 bg-white py-2 shadow-sm lg:rounded-none lg:border-0 lg:shadow-none">
+          <div className="flex items-center justify-between px-4 py-2 text-right text-sm font-semibold text-slate-700 lg:justify-start">
+            <span>القائمة</span>
+            <button
+              type="button"
+              onClick={close}
+              className="rounded-md p-1 text-slate-500 hover:bg-slate-100 lg:hidden"
+              aria-label="إغلاق القائمة"
+            >
+              ✕
+            </button>
+          </div>
+          <nav className="space-y-1 text-sm">
+            {items.map((item) => {
+              const isActive = item.label === activeLabel;
+              const Icon = item.icon;
+              return (
+                <Link
+                  key={item.label}
+                  className={`flex items-center justify-between gap-2 px-3 py-2 text-right ${
+                    isActive
+                      ? "border-r-4 border-brand-800 bg-brand-800 text-white"
+                      : "text-slate-600 hover:bg-slate-50"
                   }`}
+                  href={item.href}
+                  onClick={close}
                 >
-                  ▪
-                </span>
-              </Link>
-            );
-          })}
-        </nav>
-        <div className="border-t border-slate-200 px-3 py-3">
-          <ThemeToggle />
+                  <span className="flex items-center gap-2">
+                    <Icon
+                      className={`h-4 w-4 ${
+                        isActive ? "text-white" : "text-slate-400"
+                      }`}
+                    />
+                    {item.label}
+                  </span>
+                  <span
+                    className={`text-xs ${
+                      isActive ? "text-white/80" : "text-slate-400"
+                    }`}
+                  >
+                    ▪
+                  </span>
+                </Link>
+              );
+            })}
+          </nav>
+          <div className="border-t border-slate-200 px-3 py-3">
+            <ThemeToggle />
+          </div>
         </div>
-      </div>
-    </aside>
+      </aside>
+    </>
   );
 }

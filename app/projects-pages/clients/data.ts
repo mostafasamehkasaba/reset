@@ -1,4 +1,4 @@
-export type Client = {
+﻿export type Client = {
   id: number;
   name: string;
   email: string;
@@ -31,11 +31,11 @@ export type Client = {
 export const clients: Client[] = [
   {
     id: 1,
-    name: "احمد سعيد",
+    name: "أحمد سعيد",
     email: "testemail@example.com",
     phone: "123456789",
-    country: "Qatar",
-    address: "Doha, Qatar",
+    country: "قطر",
+    address: "الدوحة، قطر",
     currency: "USD",
     invoices: 9,
     due: 15,
@@ -54,7 +54,7 @@ export const clients: Client[] = [
         discount: 0,
         due: 0,
         currency: "USD",
-        status: "المدفوع",
+        status: "مدفوع",
         date: "20-09-2024",
         dueDate: "لا يوجد",
       },
@@ -86,11 +86,11 @@ export const clients: Client[] = [
   },
   {
     id: 2,
-    name: "سامي ابو انس",
+    name: "سامي أبو أنس",
     email: "testemail3@example.com",
     phone: "987654321",
-    country: "Tunisia",
-    address: "Tunis, Tunisia",
+    country: "تونس",
+    address: "تونس، تونس",
     currency: "QAR",
     invoices: 2,
     due: 95,
@@ -109,7 +109,7 @@ export const clients: Client[] = [
         discount: 0,
         due: 0,
         currency: "USD",
-        status: "المدفوع",
+        status: "مدفوع",
         date: "18-09-2024",
         dueDate: "لا يوجد",
       },
@@ -132,8 +132,8 @@ export const clients: Client[] = [
     name: "علي هاني",
     email: "testemail2@example.com",
     phone: "123456789",
-    country: "Algeria",
-    address: "Algiers, Algeria",
+    country: "الجزائر",
+    address: "الجزائر العاصمة، الجزائر",
     currency: "USD",
     invoices: 1,
     due: 50,

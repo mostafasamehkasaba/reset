@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import Sidebar from "../../components/Sidebar";
+import SidebarToggle from "../../components/SidebarToggle";
 
 const products = [
   { id: 1, name: "إضافة ووردبريس", sold: 0, desc: "لا يوجد", date: "24-08-2024" },
@@ -41,53 +42,7 @@ export default function ProductsPage() {
       <header className="bg-brand-900 text-white shadow-sm" dir="ltr">
         <div className="flex h-14 w-full items-center justify-between px-6">
           <div className="flex items-center gap-3 text-slate-200">
-            <button
-              className="rounded-md p-1 transition hover:bg-white/10"
-              aria-label="الصفحة الرئيسية"
-            >
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                className="h-5 w-5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              >
-                <path d="M3 11.5L12 4l9 7.5" />
-                <path d="M6 10v10h12V10" />
-              </svg>
-            </button>
-            <button
-              className="rounded-md p-1 transition hover:bg-white/10"
-              aria-label="المستخدم"
-            >
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                className="h-5 w-5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              >
-                <circle cx="12" cy="8" r="3.5" />
-                <path d="M4.5 20c1.8-3 5-4.5 7.5-4.5s5.7 1.5 7.5 4.5" />
-              </svg>
-            </button>
-            <button
-              className="rounded-md p-1 transition hover:bg-white/10"
-              aria-label="القائمة الرئيسية"
-            >
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                className="h-5 w-5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              >
-                <path d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
+            <SidebarToggle />
           </div>
           <div className="text-right text-base font-semibold">فاتورة+</div>
         </div>
