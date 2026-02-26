@@ -231,7 +231,7 @@ export default function ClientViewPage({ params }: ClientViewPageProps) {
                 </div>
                 <div className="rounded-lg border border-slate-200 bg-slate-100 p-4">
                   <div className="flex items-center justify-between text-slate-700">
-                    <div className="rounded-full bg-slate-200/70 p-2">—</div>
+                    <div className="rounded-full bg-slate-200-70 p-2">—</div>
                     <div className="text-right">
                       <div className="text-xl font-bold">{currency} {stats.discount}</div>
                       <div className="text-xs">التخفيض</div>

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Cairo, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -16,8 +16,23 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "فاتورة+ | لوحة البيانات",
-  description: "لوحة بيانات فواتير حديثة بنمط مبسّط.",
+  description: "لوحة بيانات فواتير حديثة بنمط مبسط.",
 };
+
+const themeScript = `
+(() => {
+  const storageKey = "ui-theme";
+  const stored = localStorage.getItem(storageKey);
+  const theme =
+    stored === "light" || stored === "dark"
+      ? stored
+      : window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+  document.documentElement.setAttribute("data-theme", theme);
+  document.documentElement.style.colorScheme = theme;
+})();
+`;
 
 export default function RootLayout({
   children,
@@ -25,10 +40,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" dir="ltr">
-      <body
-        className={`${cairo.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="ar" dir="rtl" suppressHydrationWarning>
+      <body className={`${cairo.variable} ${geistMono.variable} antialiased`}>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         {children}
       </body>
     </html>

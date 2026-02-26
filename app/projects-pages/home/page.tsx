@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import {
   Chart as ChartJS,
@@ -33,8 +33,8 @@ const chartData = {
     {
       label: "الفواتير",
       data: [
-        0, 6, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 1, 0, 0, 5,
-        0, 0, 0, 6, 2, 8, 3, 6,
+        0, 6, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 1, 0, 0,
+        5, 0, 0, 0, 6, 2, 8, 3, 6,
       ],
       borderColor: "#1e88e5",
       backgroundColor: "rgba(30,136,229,0.2)",
@@ -44,8 +44,8 @@ const chartData = {
     {
       label: "الدفعات",
       data: [
-        0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0,
-        0, 0, 3, 0, 0, 5, 0, 7,
+        0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0,
+        0, 0, 0, 0, 3, 0, 0, 5, 0, 7,
       ],
       borderColor: "#f39c12",
       backgroundColor: "rgba(243,156,18,0.2)",
@@ -55,8 +55,8 @@ const chartData = {
     {
       label: "المدفوع",
       data: [
-        0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 2,
-        0, 0, 0, 1, 0, 2, 0, 2,
+        0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0,
+        0, 2, 0, 0, 0, 1, 0, 2, 0, 2,
       ],
       borderColor: "#2ecc71",
       backgroundColor: "rgba(46,204,113,0.2)",
@@ -113,96 +113,64 @@ const chartOptions = {
 export default function HomePage() {
   return (
     <div className="min-h-screen w-full bg-slate-100 text-slate-800">
-      <header className="sticky top-0 z-20 border-b border-slate-200/70 bg-white/95 text-slate-700 shadow-sm backdrop-blur">
-        <div className="flex h-16 w-full items-center justify-between px-6" dir="rtl">
-          <div className="flex items-center gap-4">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#0e2a47] text-white shadow-md">
-              <span className="text-lg font-semibold">ف+</span>
-            </div>
-            <div className="text-right">
-              <p className="text-xs text-slate-500">لوحة الإدارة</p>
-              <p className="text-base font-semibold text-slate-800">فاتورة+</p>
-            </div>
-            <span className="hidden items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 md:flex">
-              <span className="h-2 w-2 rounded-full bg-emerald-500" />
-              حالة النظام مستقرة
-            </span>
-          </div>
-
-          <div className="hidden flex-1 items-center justify-center px-6 lg:flex">
-            <div className="flex w-full max-w-md items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-2 shadow-sm">
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                className="h-4 w-4 text-slate-400"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              >
-                <circle cx="11" cy="11" r="7" />
-                <path d="M20 20l-3.5-3.5" />
-              </svg>
-              <input
-                className="w-full text-sm outline-none placeholder:text-slate-400"
-                placeholder="بحث سريع في الفواتير والعملاء"
-              />
-              <span className="rounded-full bg-slate-100 px-2 py-1 text-[10px] text-slate-500">
-                Ctrl + K
-              </span>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2">
+      <header className="bg-[#071a2c] text-white shadow-sm" dir="ltr">
+        <div className="flex h-14 w-full items-center justify-between px-6">
+          <div className="flex items-center gap-3 text-slate-200">
             <button
-              className="rounded-full border border-slate-200 bg-white p-2 text-slate-500 shadow-sm transition hover:border-slate-300 hover:text-slate-700"
-              aria-label="الإشعارات"
+              className="rounded-md p-1 transition hover:bg-white/10"
+              aria-label="الصفحة الرئيسية"
             >
               <svg
                 aria-hidden="true"
                 viewBox="0 0 24 24"
-                className="h-4 w-4"
+                className="h-5 w-5"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1.5"
               >
-                <path d="M6 8a6 6 0 0112 0v5l2 2H4l2-2V8z" />
-                <path d="M9.5 19a2.5 2.5 0 005 0" />
+                <path d="M3 11.5L12 4l9 7.5" />
+                <path d="M6 10v10h12V10" />
               </svg>
             </button>
             <button
-              className="rounded-full border border-slate-200 bg-white p-2 text-slate-500 shadow-sm transition hover:border-slate-300 hover:text-slate-700"
-              aria-label="الإعدادات"
+              className="rounded-md p-1 transition hover:bg-white/10"
+              aria-label="المستخدم"
             >
               <svg
                 aria-hidden="true"
                 viewBox="0 0 24 24"
-                className="h-4 w-4"
+                className="h-5 w-5"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1.5"
               >
-                <path d="M12 2l1.5 3.5 3.8.5-2.8 2.7.7 3.8L12 10.9 8.8 12.5l.7-3.8L6.7 6l3.8-.5L12 2z" />
-                <circle cx="12" cy="12" r="3" />
+                <circle cx="12" cy="8" r="3.5" />
+                <path d="M4.5 20c1.8-3 5-4.5 7.5-4.5s5.7 1.5 7.5 4.5" />
               </svg>
             </button>
-            <div className="hidden items-center gap-3 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm shadow-sm sm:flex">
-              <div className="h-8 w-8 rounded-full bg-slate-200 text-center text-xs font-semibold leading-8 text-slate-700">
-                أ
-              </div>
-              <div className="text-right">
-                <p className="text-xs text-slate-500">مرحباً</p>
-                <p className="text-sm font-semibold text-slate-700">
-                  أحمد سعيد
-                </p>
-              </div>
-            </div>
+            <button
+              className="rounded-md p-1 transition hover:bg-white/10"
+              aria-label="القائمة الرئيسية"
+            >
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                className="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
           </div>
+          <div className="text-right text-base font-semibold">فاتورة+</div>
         </div>
       </header>
 
-      <div className="flex w-full gap-5 px-6 py-6">
-        <main className="flex-1 space-y-4">
-          <div className="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-slate-200 bg-white/90 px-4 py-3 shadow-sm backdrop-blur">
+      <div className="flex w-full gap-5 px-6 pt-6" dir="ltr">
+        <main className="flex-1 space-y-4" dir="rtl">
+          <div className="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-slate-200 bg-white px-4 py-3 shadow-sm">
             <div className="flex items-center gap-3 text-slate-600">
               <button
                 className="rounded-md border border-slate-200 bg-white px-2 py-1 text-sm shadow-sm"
@@ -218,15 +186,13 @@ export default function HomePage() {
                 ▶
               </button>
             </div>
-            <div className="text-right">
-              <p className="text-lg font-semibold text-slate-700">
-                لوحة البيانات
-              </p>
+            <div className="text-right text-lg font-semibold text-slate-700">
+              لوحة البيانات
             </div>
           </div>
 
           <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_320px]">
-            <section className="rounded-lg border border-slate-200 bg-white/95 p-4 shadow-sm">
+            <section className="order-1 flex flex-col rounded-lg border border-slate-200 bg-white p-4 shadow-sm lg:order-2 lg:min-h-[560px]">
               <div className="flex flex-wrap items-center justify-between gap-3 text-sm text-slate-600">
                 <div className="flex items-center gap-2">
                   <button className="inline-flex items-center gap-2 rounded-md bg-[#0e2a47] px-3 py-1 text-white shadow-sm">
@@ -300,15 +266,15 @@ export default function HomePage() {
                 </div>
 
                 <div className="mt-3">
-                  <div className="h-56">
+                  <div className="h-72 lg:h-80">
                     <Line data={chartData} options={chartOptions} />
                   </div>
                 </div>
               </div>
             </section>
 
-            <aside className="space-y-3">
-              <div className="rounded-lg border border-blue-200 bg-gradient-to-br from-blue-100 via-blue-100 to-blue-50 p-4 shadow-sm">
+            <aside className="order-2 space-y-3 lg:order-1 lg:flex lg:min-h-[560px] lg:flex-col lg:justify-between">
+              <div className="rounded-lg border border-blue-200 bg-blue-50 p-4 shadow-sm">
                 <div className="flex items-center justify-between text-blue-900">
                   <div className="rounded-full bg-blue-200/60 p-2">
                     <svg
@@ -332,7 +298,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="rounded-lg border border-yellow-200 bg-gradient-to-br from-yellow-100 via-yellow-100 to-yellow-50 p-4 shadow-sm">
+              <div className="rounded-lg border border-yellow-200 bg-yellow-50 p-4 shadow-sm">
                 <div className="flex items-center justify-between text-yellow-900">
                   <div className="rounded-full bg-yellow-200/70 p-2">
                     <svg
@@ -355,7 +321,7 @@ export default function HomePage() {
               </div>
 
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
-                <div className="rounded-lg border border-emerald-200 bg-gradient-to-br from-emerald-100 via-emerald-100 to-emerald-50 p-4 shadow-sm">
+                <div className="rounded-lg border border-emerald-200 bg-emerald-50 p-4 shadow-sm">
                   <div className="flex items-center justify-between text-emerald-900">
                     <div className="rounded-full bg-emerald-200/70 p-2">
                       <svg
@@ -379,7 +345,7 @@ export default function HomePage() {
 
                 <div className="rounded-lg border border-slate-200 bg-slate-100 p-4 shadow-sm">
                   <div className="flex items-center justify-between text-slate-700">
-                    <div className="rounded-full bg-slate-200/70 p-2">
+                    <div className="rounded-full bg-slate-200-70 p-2">
                       <svg
                         aria-hidden="true"
                         viewBox="0 0 24 24"
@@ -400,7 +366,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="rounded-lg border border-rose-200 bg-gradient-to-br from-rose-100 via-rose-100 to-rose-50 p-4 shadow-sm">
+              <div className="rounded-lg border border-rose-200 bg-rose-50 p-4 shadow-sm">
                 <div className="flex items-center justify-between text-rose-900">
                   <div className="rounded-full bg-rose-200/70 p-2">
                     <svg
@@ -423,15 +389,16 @@ export default function HomePage() {
               </div>
             </aside>
           </div>
-
-          <div className="rounded-lg border border-slate-200 bg-white/70 px-4 py-3 text-center text-xs text-slate-500 shadow-sm">
-            جميع الحقوق محفوظة فاتورة+ © 2024 - بواسطة ديفر
-          </div>
         </main>
 
         <Sidebar activeLabel="لوحة البيانات" />
       </div>
+
+      <div className="px-6 pb-6" dir="rtl">
+        <div className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-center text-xs text-slate-500 shadow-sm">
+          جميع الحقوق محفوظة فاتورة+ © 2024 - بواسطة ديفر
+        </div>
+      </div>
     </div>
   );
 }
-

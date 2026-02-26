@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import {
@@ -11,6 +11,7 @@ import {
   Mail,
   Info,
 } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 type SidebarProps = {
   activeLabel:
@@ -19,18 +20,23 @@ type SidebarProps = {
     | "المنتجات"
     | "وسائل الدفع"
     | "العملاء"
-    | "عام"
+    | "الإعدادات"
     | "البريد"
-    | "حول";
+    | "حول"
+    | string;
 };
 
 const items = [
   { label: "لوحة البيانات", href: "/", icon: LayoutDashboard },
   { label: "الفواتير", href: "/projects-pages/invoices", icon: FileText },
   { label: "المنتجات", href: "/projects-pages/products", icon: Package },
-  { label: "وسائل الدفع", href: "/projects-pages/payment-methods", icon: CreditCard },
+  {
+    label: "وسائل الدفع",
+    href: "/projects-pages/payment-methods",
+    icon: CreditCard,
+  },
   { label: "العملاء", href: "/projects-pages/clients", icon: Users },
-  { label: "عام", href: "/projects-pages/settings", icon: Settings },
+  { label: "الإعدادات", href: "/projects-pages/settings", icon: Settings },
   { label: "البريد", href: "/projects-pages/mail", icon: Mail },
   { label: "حول", href: "/projects-pages/about", icon: Info },
 ];
@@ -69,12 +75,15 @@ export default function Sidebar({ activeLabel }: SidebarProps) {
                     isActive ? "text-white/80" : "text-slate-400"
                   }`}
                 >
-                  ▢
+                  ▪
                 </span>
               </Link>
             );
           })}
         </nav>
+        <div className="border-t border-slate-200 px-3 py-3">
+          <ThemeToggle />
+        </div>
       </div>
     </aside>
   );
