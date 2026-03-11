@@ -1,14 +1,84 @@
-﻿import Link from "next/link";
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
 import Sidebar from "../../../components/Sidebar";
 import SidebarToggle from "../../../components/SidebarToggle";
 
-const items = [
-  { name: "قالب ووردبريس", price: 20, qty: 1, total: 20 },
-  { name: "تصميم موقع", price: 30, qty: 1, total: 30 },
-  { name: "إعداد سيرفر", price: 50, qty: 1, total: 50 },
-];
+type InvoiceItem = {
+  name: string;
+  item_type: "service" | "product";
+  unit_price: number;
+  qty: number;
+  total: number;
+};
 
 export default function NewInvoicePage() {
+  const [items, setItems] = useState<InvoiceItem[]>([
+    { name: "قالب ووردبريس", item_type: "service", unit_price: 20, qty: 1, total: 20 },
+    { name: "تصميم موقع", item_type: "service", unit_price: 30, qty: 1, total: 30 },
+    { name: "إعداد سيرفر", item_type: "service", unit_price: 50, qty: 1, total: 50 },
+  ]);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<boolean>(false);
+
+  const updateItem = (index: number, field: keyof InvoiceItem, value: string | number) => {
+    const newItems = [...items];
+    const item = { ...newItems[index] };
+
+    if (field === "item_type") {
+      item.item_type = value as "service" | "product";
+    } else if (field === "unit_price") {
+      item.unit_price = Number(value) || 0;
+    } else if (field === "qty") {
+      item.qty = Number(value) || 0;
+    } else if (field === "name") {
+      item.name = String(value);
+    }
+
+    item.total = item.unit_price * item.qty;
+    newItems[index] = item;
+    setItems(newItems);
+  };
+
+  const addItem = () => {
+    setItems([...items, { name: "", item_type: "service", unit_price: 0, qty: 1, total: 0 }]);
+  };
+
+  const removeItem = (index: number) => {
+    setItems(items.filter((_, i) => i !== index));
+  };
+
+  const handleSave = () => {
+    setError(null);
+    setSuccess(false);
+
+    // Validation
+    for (let i = 0; i < items.length; i++) {
+      const item = items[i];
+      if (item.item_type === "service" && (item.unit_price === undefined || item.unit_price <= 0)) {
+        setError(`السعر مطلوب للعنصر رقم ${i + 1} لأنه خدمة.`);
+        return;
+      }
+      if (!item.name.trim()) {
+        setError(`اسم العنصر مطلوب للعنصر رقم ${i + 1}.`);
+        return;
+      }
+    }
+
+    if (items.length === 0) {
+      setError("يجب إضافة عنصر واحد على الأقل.");
+      return;
+    }
+
+    // Mock API call
+    console.log("Saving invoice with items:", items);
+    setSuccess(true);
+    alert("تم حفظ الفاتورة بنجاح!");
+  };
+
+  const subTotal = items.reduce((acc, item) => acc + item.total, 0);
+
   return (
     <div className="min-h-screen w-full bg-slate-100 text-slate-800">
       <header className="bg-brand-900 text-white shadow-sm" dir="ltr">
@@ -163,36 +233,93 @@ export default function NewInvoicePage() {
                 </div>
               </div>
 
+              {error && (
+                <div className="mt-4 rounded-md bg-rose-50 p-3 text-sm text-rose-700 border border-rose-200">
+                  {error}
+                </div>
+              )}
+
+              {success && (
+                <div className="mt-4 rounded-md bg-emerald-50 p-3 text-sm text-emerald-700 border border-emerald-200">
+                  تم حفظ الفاتورة بنجاح!
+                </div>
+              )}
+
               <div className="mt-4 overflow-hidden rounded-lg border border-slate-200">
                 <table className="min-w-full text-right text-sm">
                   <thead className="bg-slate-50 text-slate-600">
                     <tr>
-                      <th className="px-3 py-3">المنتج</th>
-                      <th className="px-3 py-3 text-center">السعر</th>
+                      <th className="px-3 py-3">الاسم</th>
+                      <th className="px-3 py-3 text-center">النوع</th>
+                      <th className="px-3 py-3 text-center">سعر الوحدة</th>
                       <th className="px-3 py-3 text-center">الكمية</th>
                       <th className="px-3 py-3 text-center">الإجمالي</th>
+                      <th className="px-3 py-3 text-center"></th>
                     </tr>
                   </thead>
                   <tbody>
-                    {items.map((item) => (
-                      <tr key={item.name} className="border-t border-slate-200">
-                        <td className="px-3 py-3 font-semibold text-slate-700">
-                          {item.name}
+                    {items.map((item, index) => (
+                      <tr key={index} className="border-t border-slate-200">
+                        <td className="px-3 py-3">
+                          <input
+                            type="text"
+                            value={item.name}
+                            onChange={(e) => updateItem(index, "name", e.target.value)}
+                            className="w-full rounded-md border border-slate-200 px-2 py-1"
+                            placeholder="اسم المنتج / الخدمة"
+                          />
                         </td>
-                        <td className="px-3 py-3 text-center text-slate-600">
-                          {item.price}
+                        <td className="px-3 py-3 text-center">
+                          <select
+                            value={item.item_type}
+                            onChange={(e) => updateItem(index, "item_type", e.target.value)}
+                            className="rounded-md border border-slate-200 px-2 py-1"
+                          >
+                            <option value="service">خدمة</option>
+                            <option value="product">منتج</option>
+                          </select>
                         </td>
-                        <td className="px-3 py-3 text-center text-slate-600">
-                          {item.qty}
+                        <td className="px-3 py-3 text-center">
+                          <input
+                            type="number"
+                            value={item.unit_price}
+                            onChange={(e) => updateItem(index, "unit_price", e.target.value)}
+                            className="w-20 rounded-md border border-slate-200 px-2 py-1 text-center"
+                          />
+                        </td>
+                        <td className="px-3 py-3 text-center">
+                          <input
+                            type="number"
+                            value={item.qty}
+                            onChange={(e) => updateItem(index, "qty", e.target.value)}
+                            className="w-16 rounded-md border border-slate-200 px-2 py-1 text-center"
+                          />
                         </td>
                         <td className="px-3 py-3 text-center font-semibold text-slate-700">
                           {item.total}
+                        </td>
+                        <td className="px-3 py-3 text-center">
+                          <button
+                            type="button"
+                            onClick={() => removeItem(index)}
+                            className="text-rose-600 hover:text-rose-800"
+                          >
+                            ✕
+                          </button>
                         </td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
               </div>
+
+              <button
+                type="button"
+                onClick={addItem}
+                className="mt-3 text-sm font-semibold text-brand-800 hover:text-brand-900"
+              >
+                + إضافة عنصر
+              </button>
 
               <div className="mt-4 grid gap-4 lg:grid-cols-2">
                 <div className="space-y-2">
@@ -208,7 +335,7 @@ export default function NewInvoicePage() {
                 <div className="space-y-2 rounded-lg border border-slate-200 bg-slate-50 p-3 text-sm">
                   <div className="flex items-center justify-between">
                     <span className="text-slate-600">الإجمالي</span>
-                    <span className="font-semibold text-slate-700">100</span>
+                    <span className="font-semibold text-slate-700">{subTotal}</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-slate-600">الخصم</span>
@@ -216,13 +343,16 @@ export default function NewInvoicePage() {
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-slate-600">الإجمالي النهائي</span>
-                    <span className="font-semibold text-emerald-700">100</span>
+                    <span className="font-semibold text-emerald-700">{subTotal}</span>
                   </div>
                 </div>
               </div>
 
               <div className="mt-6 flex items-center justify-between">
-                <button className="rounded-full bg-brand-900 px-8 py-2 text-sm text-white">
+                <button
+                  onClick={handleSave}
+                  className="rounded-full bg-brand-900 px-8 py-2 text-sm text-white"
+                >
                   حفظ الفاتورة
                 </button>
                 <Link
